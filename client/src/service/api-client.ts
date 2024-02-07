@@ -1,7 +1,8 @@
 import { LoginFormDataProps } from "../pages/Login"
 import { RegisterFormDataProps } from "../pages/Register"
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ""
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:5173"
 
 export const register = async (formData: RegisterFormDataProps) => {
   const response = await fetch(`${API_BASE_URL}/api/users/register`, {
