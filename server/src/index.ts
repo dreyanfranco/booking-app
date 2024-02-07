@@ -2,6 +2,7 @@ import cookieParser from "cookie-parser"
 import cors from "cors"
 import "dotenv/config"
 import express, { Request, Response } from "express"
+import path from "path"
 import authRoutes from "./routes/auth.routes"
 import userRoutes from "./routes/users.routes"
 require("./db/mongodb")
@@ -16,6 +17,10 @@ app.use(
         credentials: true,
     })
 )
+
+// added dist client folder so only backend can be deployed
+
+app.use(express.static(path.join(__dirname, "../../client/dist")))
 
 app.use("/api/users", userRoutes)
 app.use("/api/auth", authRoutes)
