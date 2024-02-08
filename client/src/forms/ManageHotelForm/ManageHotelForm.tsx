@@ -1,5 +1,9 @@
 import { FormProvider, useForm } from "react-hook-form"
 import DetailsSection from "./DetailsSection"
+import FacilitiesSection from "./FacilitiesSection"
+import GuestsSection from "./GuestsSection"
+import ImagesSection from "./ImagesSection"
+import TypeSection from "./TypeSection"
 
 export type HotelFormData = {
   name: string
@@ -19,8 +23,12 @@ const ManageHotelForm = () => {
   const formMethods = useForm<HotelFormData>()
   return (
     <FormProvider {...formMethods}>
-      <form>
+      <form className="flex flex-col gap-10">
         <DetailsSection />
+        <TypeSection />
+        <FacilitiesSection />
+        <GuestsSection />
+        <ImagesSection />
       </form>
     </FormProvider>
   )
