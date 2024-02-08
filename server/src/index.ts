@@ -1,11 +1,19 @@
+import { v2 as cloudinary } from "cloudinary"
 import cookieParser from "cookie-parser"
 import cors from "cors"
 import "dotenv/config"
-import express, { Request, Response } from "express"
+import express from "express"
 import path from "path"
 import authRoutes from "./routes/auth.routes"
+import hotelRoutes from "./routes/hotels.routes"
 import userRoutes from "./routes/users.routes"
 require("./db/mongodb")
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+})
 
 const app = express()
 app.use(cookieParser())
@@ -24,6 +32,7 @@ app.use(express.static(path.join(__dirname, "../../client/dist")))
 
 app.use("/api/users", userRoutes)
 app.use("/api/auth", authRoutes)
+app.use("/api/hotels", hotelRoutes)
 
 const PORT = 7001
 
