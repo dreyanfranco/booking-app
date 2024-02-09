@@ -3,6 +3,7 @@ import { useAppContext } from "./context/AppContext"
 import Layout from "./layouts/Layout"
 import AddHotel from "./pages/AddHotel"
 import Login from "./pages/Login"
+import MyHotels from "./pages/MyHotels"
 import Register from "./pages/Register"
 
 function App() {
@@ -49,6 +50,14 @@ function App() {
             element={
               <Layout>
                 <AddHotel />
+              </Layout>
+            }
+          />
+          <Route
+            path="/my-hotels"
+            element={
+              <Layout>
+                <MyHotels />
               </Layout>
             }
           />

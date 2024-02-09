@@ -1,3 +1,4 @@
+import { HotelType } from "../../../server/src/models/Hotel.model"
 import { LoginFormDataProps } from "../pages/Login"
 import { RegisterFormDataProps } from "../pages/Register"
 
@@ -65,6 +66,18 @@ export const addHotel = async (hotelFormData: FormData) => {
     method: "POST",
     credentials: "include",
     body: hotelFormData,
+  })
+
+  if (!response.ok) {
+    throw new Error("Failed to add hotel")
+  }
+
+  return response.json()
+}
+
+export const getHotels = async (): Promise<HotelType[]> => {
+  const response = await fetch(`${API_BASE_URL}/api/hotels`, {
+    credentials: "include",
   })
 
   if (!response.ok) {
