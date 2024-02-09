@@ -2,7 +2,7 @@ import { v2 as cloudinary } from "cloudinary"
 import cookieParser from "cookie-parser"
 import cors from "cors"
 import "dotenv/config"
-import express from "express"
+import express, { Request, Response } from "express"
 import path from "path"
 import authRoutes from "./routes/auth.routes"
 import hotelRoutes from "./routes/hotels.routes"
@@ -33,6 +33,10 @@ app.use(express.static(path.join(__dirname, "../../client/dist")))
 app.use("/api/users", userRoutes)
 app.use("/api/auth", authRoutes)
 app.use("/api/hotels", hotelRoutes)
+
+app.get("*", (req: Request, res: Response) => {
+    res.sendFile(path.join(__dirname, "../../client/dist/index.html"))
+})
 
 const PORT = 7001
 
