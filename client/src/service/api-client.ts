@@ -1,4 +1,4 @@
-import { HotelType } from "../../../server/src/models/Hotel.model"
+import { HotelType } from "../../../server/src/shared/types"
 import { LoginFormDataProps } from "../pages/Login"
 import { RegisterFormDataProps } from "../pages/Register"
 

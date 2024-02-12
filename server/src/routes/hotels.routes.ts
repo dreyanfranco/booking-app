@@ -3,7 +3,8 @@ import express, { Request, Response } from "express"
 import { body } from "express-validator"
 import multer from "multer"
 import verifyToken from "../middleware/auth"
-import Hotel, { HotelType } from "../models/Hotel.model"
+import Hotel from "../models/Hotel.model"
+import { HotelType } from "../shared/types"
 
 const router = express.Router()
 
