@@ -22,12 +22,12 @@ const MyHotels = () => {
           Add Hotel
         </Link>
       </span>
-      <div className="frid-cols-1 grid gap-8">
+      <div className="grid grid-cols-1 gap-8">
         {hotelData.map((hotel) => (
           <div className="flex flex-col justify-between gap-5 rounded-lg border border-slate-300 p-8">
             <h2 className="text-2xl font-bold">{hotel.name}</h2>
             <div className="whitespace-pre-line">{hotel.description}</div>
-            <div className="grid grid-cols-5 gap-2">
+            <div className="grid grid-cols-3 gap-2 text-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
               <div className="flex items-center rounded-sm border border-slate-300 p-3">
                 <div className="mr-1">
                   <svg
