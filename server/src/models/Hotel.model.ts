@@ -1,4 +1,3 @@
-import { NumericType } from "mongodb"
 import mongoose from "mongoose"
 
 export type HotelType = {
