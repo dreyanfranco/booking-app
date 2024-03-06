@@ -1,4 +1,7 @@
-import { HotelType } from "../../../server/src/shared/types"
+import {
+  HotelSearchResponse,
+  HotelType,
+} from "../../../server/src/shared/types"
 import { LoginFormDataProps } from "../pages/Login"
 import { RegisterFormDataProps } from "../pages/Register"
 
@@ -62,7 +65,7 @@ export const logout = async () => {
 }
 
 export const addHotel = async (hotelFormData: FormData) => {
-  const response = await fetch(`${API_BASE_URL}/api/hotels`, {
+  const response = await fetch(`${API_BASE_URL}/api/my-hotels`, {
     method: "POST",
     credentials: "include",
     body: hotelFormData,
@@ -76,19 +79,19 @@ export const addHotel = async (hotelFormData: FormData) => {
 }
 
 export const getHotels = async (): Promise<HotelType[]> => {
-  const response = await fetch(`${API_BASE_URL}/api/hotels`, {
+  const response = await fetch(`${API_BASE_URL}/api/my-hotels`, {
     credentials: "include",
   })
 
   if (!response.ok) {
-    throw new Error("Failed to add hotel")
+    throw new Error("Error fetching hotels")
   }
 
   return response.json()
 }
 
 export const fetchMyHotelById = async (hotelId: string): Promise<HotelType> => {
-  const response = await fetch(`${API_BASE_URL}/api/hotels/${hotelId}`, {
+  const response = await fetch(`${API_BASE_URL}/api/my-hotels/${hotelId}`, {
     credentials: "include",
   })
   if (!response.ok) {
@@ -100,7 +103,7 @@ export const fetchMyHotelById = async (hotelId: string): Promise<HotelType> => {
 
 export const updateMyHotelById = async (hotelFormData: FormData) => {
   const response = await fetch(
-    `${API_BASE_URL}/api/hotels/${hotelFormData.get("hotelId")}`,
+    `${API_BASE_URL}/api/my-hotels/${hotelFormData.get("hotelId")}`,
     {
       method: "PUT",
       body: hotelFormData,
@@ -112,5 +115,35 @@ export const updateMyHotelById = async (hotelFormData: FormData) => {
     throw new Error("Failed to update hotel")
   }
 
+  return response.json()
+}
+
+export type SearchParams = {
+  destination?: string
+  checkIn?: string
+  checkOut?: string
+  adultCount?: string
+  childCount?: string
+  page?: string
+}
+
+export const searchHotels = async (
+  searchParams: SearchParams,
+): Promise<HotelSearchResponse> => {
+  const queryParams = new URLSearchParams()
+  queryParams.append("destination", searchParams.destination || "")
+  queryParams.append("checkIn", searchParams.checkIn || "")
+  queryParams.append("checkOut", searchParams.checkOut || "")
+  queryParams.append("adultCount", searchParams.adultCount || "")
+  queryParams.append("childCount", searchParams.childCount || "")
+  queryParams.append("page", searchParams.page || "")
+
+  const response = await fetch(
+    `${API_BASE_URL}/api/hotels/search?${queryParams}`,
+  )
+
+  if (!response) {
+    throw new Error("Error fetching hotel")
+  }
   return response.json()
 }

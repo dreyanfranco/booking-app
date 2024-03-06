@@ -33,8 +33,8 @@ app.use(express.static(path.join(__dirname, "../../client/dist")))
 
 app.use("/api/users", userRoutes)
 app.use("/api/auth", authRoutes)
-app.use("/api/hotels", hotelRoutes)
-app.use("/api/search-hotels", searchHotelRoutes)
+app.use("/api/my-hotels", hotelRoutes)
+app.use("/api/hotels", searchHotelRoutes)
 
 app.get("*", (req: Request, res: Response) => {
     res.sendFile(path.join(__dirname, "../../client/dist/index.html"))
