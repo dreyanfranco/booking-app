@@ -1,4 +1,3 @@
-import React from "react"
 import { Link } from "react-router-dom"
 import { HotelType } from "../../../server/src/shared/types"
 
@@ -49,7 +48,10 @@ const SearchResultsCard = ({ hotel }: Props) => {
         <div className="grid grid-cols-2 items-end whitespace-nowrap ">
           <div className="flex items-center gap-1">
             {hotel.facilities.slice(0, 3).map((facility) => (
-              <span className="whitespace-nowrap rounded-lg bg-slate-300 p-2 text-xs font-bold">
+              <span
+                key={facility}
+                className="whitespace-nowrap rounded-lg bg-slate-300 p-2 text-xs font-bold"
+              >
                 {facility}
               </span>
             ))}
