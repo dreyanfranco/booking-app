@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form"
 import { useMutation, useQueryClient } from "react-query"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { useAppContext } from "../context/AppContext"
 import * as apiClient from "../service/api-client"
 
@@ -13,6 +13,7 @@ const Login = () => {
   const queryClient = useQueryClient()
   const navigate = useNavigate()
   const { showToast } = useAppContext()
+  const location = useLocation()
   const {
     register,
     formState: { errors },
@@ -24,7 +25,7 @@ const Login = () => {
       showToast({ message: "Logged in succesfully", type: "SUCCESS" })
       await queryClient.invalidateQueries("validateToken")
 
-      navigate("/")
+      navigate(location.state?.from?.pathname || "/")
     },
     onError: (error: Error) => {
       showToast({ message: error.message, type: "ERROR" })
