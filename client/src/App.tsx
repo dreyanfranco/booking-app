@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom"
 import { useAppContext } from "./context/AppContext"
 import Layout from "./layouts/Layout"
 import AddHotel from "./pages/AddHotel"
+import Booking from "./pages/Booking"
 import Details from "./pages/Details"
 import EditHotel from "./pages/EditHotel"
 import Login from "./pages/Login"
@@ -56,6 +57,14 @@ function App() {
 
       {isLoggedIn && (
         <>
+          <Route
+            path="/hotel/:hotelId/booking"
+            element={
+              <Layout>
+                <Booking />
+              </Layout>
+            }
+          />
           <Route
             path="/add-hotel"
             element={
