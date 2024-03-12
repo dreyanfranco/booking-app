@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <div className="space-y-3">
       <h2 className="text-3xl font-bold">Latest Destinations</h2>
-      <p>Most recent desinations added by our hosts</p>
+      <p>Most recent destinations added by our hosts</p>
       <div className="grid gap-4">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {topRowHotels.map((hotel) => (

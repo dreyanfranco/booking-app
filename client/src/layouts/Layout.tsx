@@ -7,7 +7,7 @@ interface LayoutProps {
 }
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="font-roboto flex min-h-screen flex-col">
       <Header />
       <Hero />
       <div className="container mx-auto">
