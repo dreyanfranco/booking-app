@@ -5,6 +5,7 @@ import AddHotel from "./pages/AddHotel"
 import Booking from "./pages/Booking"
 import Details from "./pages/Details"
 import EditHotel from "./pages/EditHotel"
+import Home from "./pages/Home"
 import Login from "./pages/Login"
 import MyBookings from "./pages/MyBookings"
 import MyHotels from "./pages/MyHotels"
@@ -19,7 +20,7 @@ function App() {
         path="/"
         element={
           <Layout>
-            <p>Home</p>
+            <Home />
           </Layout>
         }
       />
