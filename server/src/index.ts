@@ -6,6 +6,7 @@ import express, { Request, Response } from "express"
 import path from "path"
 import authRoutes from "./routes/auth.routes"
 import hotelRoutes from "./routes/hotels.routes"
+import bookingRoutes from "./routes/my-bookings.routes"
 import searchHotelRoutes from "./routes/search-hotels.routes"
 import userRoutes from "./routes/users.routes"
 require("./db/mongodb")
@@ -35,6 +36,7 @@ app.use("/api/users", userRoutes)
 app.use("/api/auth", authRoutes)
 app.use("/api/my-hotels", hotelRoutes)
 app.use("/api/hotels", searchHotelRoutes)
+app.use("/api/my-bookings", bookingRoutes)
 
 app.get("*", (req: Request, res: Response) => {
     res.sendFile(path.join(__dirname, "../../client/dist/index.html"))

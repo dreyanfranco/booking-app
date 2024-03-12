@@ -6,6 +6,7 @@ import Booking from "./pages/Booking"
 import Details from "./pages/Details"
 import EditHotel from "./pages/EditHotel"
 import Login from "./pages/Login"
+import MyBookings from "./pages/MyBookings"
 import MyHotels from "./pages/MyHotels"
 import Register from "./pages/Register"
 import Search from "./pages/Search"
@@ -82,6 +83,14 @@ function App() {
             }
           />
           <Route
+            path="/my-bookings"
+            element={
+              <Layout>
+                <MyBookings />
+              </Layout>
+            }
+          />
+          <Route
             path="/edit-hotel/:hotelId"
             element={
               <Layout>
@@ -92,7 +101,6 @@ function App() {
         </>
       )}
       <Route path="*" element={<Navigate to="/" />} />
-      <Route></Route>
     </Routes>
   )
 }
