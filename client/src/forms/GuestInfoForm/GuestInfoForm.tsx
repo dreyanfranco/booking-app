@@ -66,7 +66,7 @@ const GuestInfoForm = ({ hotelId, pricePerNight }: Props) => {
   }
 
   return (
-    <div className="flex flex-col gap-4 bg-blue-200 p-4">
+    <div className="flex flex-col gap-4 rounded-lg bg-blue-200 p-4">
       <h3 className="text-md font-bold">€{pricePerNight}</h3>
       <form
         onSubmit={
@@ -87,7 +87,7 @@ const GuestInfoForm = ({ hotelId, pricePerNight }: Props) => {
               maxDate={maxDate}
               dateFormat="dd/MM/yyyy"
               placeholderText="Check-in Date"
-              className="min-w-full bg-white p-2 focus:outline-none "
+              className="min-w-full rounded-lg bg-white p-2 focus:outline-none"
               wrapperClassName="min-w-full"
             />
           </div>
@@ -104,11 +104,11 @@ const GuestInfoForm = ({ hotelId, pricePerNight }: Props) => {
               maxDate={maxDate}
               dateFormat="dd/MM/yyyy"
               placeholderText="Check-in Date"
-              className="min-w-full bg-white p-2 focus:outline-none "
+              className="min-w-full rounded-lg bg-white p-2 focus:outline-none"
               wrapperClassName="min-w-full"
             />
           </div>
-          <div className="flex justify-between gap-2 bg-white px-2 py-1">
+          <div className="flex justify-between gap-2 rounded-lg bg-white px-2 py-1">
             <label className="flex items-center">
               Adults:
               <input
@@ -145,11 +145,11 @@ const GuestInfoForm = ({ hotelId, pricePerNight }: Props) => {
             )}
           </div>
           {isLoggedIn ? (
-            <button className="h-full bg-blue-600 p-2 text-xl font-bold text-white hover:bg-blue-500">
+            <button className="h-full rounded-lg bg-blue-600 p-2 text-xl font-bold text-white hover:bg-blue-500">
               Book Now
             </button>
           ) : (
-            <button className="h-full bg-blue-600 p-2 text-xl font-bold text-white hover:bg-blue-500">
+            <button className="h-full rounded-lg bg-blue-600 p-2 text-xl font-bold text-white hover:bg-blue-500">
               Sign in to Book
             </button>
           )}

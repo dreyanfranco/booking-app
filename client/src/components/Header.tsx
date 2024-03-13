@@ -30,7 +30,7 @@ const Header = () => {
           ) : (
             <Link
               to={"/login"}
-              className="flex items-center rounded-lg bg-white px-3 font-bold text-blue-600 hover:bg-gray-100"
+              className="flex items-center rounded-lg bg-white px-6 font-bold text-blue-600 hover:bg-gray-100"
             >
               Login
             </Link>

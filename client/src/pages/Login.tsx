@@ -36,24 +36,27 @@ const Login = () => {
     mutation.mutate(data)
   })
   return (
-    <form className="flex flex-col gap-5" onSubmit={onSubmit}>
-      <h2 className="text-3xl font-bold">Login</h2>
-      <label className="flex-1 text-sm font-bold text-gray-700">
-        Email
+    <section className="mx-5 flex flex-col items-center justify-center">
+      <div className="max-w-sm md:w-1/3">
+        <img
+          src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          alt="Sample image"
+        />
+      </div>
+      <form onSubmit={onSubmit} className="max-w-sm md:w-1/3">
         <input
-          type="email"
-          className="w-full rounded border py-1 font-normal"
+          className="w-full rounded border border-solid border-gray-300 px-4 py-2 text-sm"
+          type="text"
+          placeholder="Email Address"
           {...register("email", { required: "This field is required" })}
         />
         {errors.email && (
-          <span className="text-red-500">{errors.email.message}</span>
+          <span className="text-red-400">{errors.email.message}</span>
         )}
-      </label>
-      <label className="flex-1 text-sm font-bold text-gray-700">
-        Password
         <input
+          className="mt-4 w-full rounded border border-solid border-gray-300 px-4 py-2 text-sm"
           type="password"
-          className="w-full rounded border py-1 font-normal"
+          placeholder="Password"
           {...register("password", {
             required: "This field is required",
             minLength: {
@@ -63,24 +66,27 @@ const Login = () => {
           })}
         />
         {errors.password && (
-          <span className="text-red-500">{errors.password.message}</span>
+          <span className="text-red-400">{errors.password.message}</span>
         )}
-      </label>
-      <span className="flex items-center justify-between">
-        <span className="text-sm">
-          Not Registered?{" "}
-          <Link className="underline" to="/register">
-            Create an account here
+        <div className="text-center md:text-left">
+          <button
+            className="mt-4 w-full rounded bg-blue-600 px-4 py-2 text-xs uppercase tracking-wider text-white hover:bg-blue-700"
+            type="submit"
+          >
+            Login
+          </button>
+        </div>
+        <div className="mt-4 text-center text-sm font-semibold text-slate-500 md:text-left">
+          Don&apos;t have an account?{" "}
+          <Link
+            className="text-blue-500 underline hover:underline hover:underline-offset-4"
+            to="/register"
+          >
+            Register
           </Link>
-        </span>
-        <button
-          type="submit"
-          className="bg-blue-600 p-2 text-xl font-bold text-white hover:bg-blue-500"
-        >
-          Login
-        </button>
-      </span>
-    </form>
+        </div>
+      </form>
+    </section>
   )
 }
 
