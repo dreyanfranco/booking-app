@@ -1,15 +1,11 @@
 import { useState } from "react"
 import { useQuery } from "react-query"
-// import FacilitiesFilter from "../components/FacilitiesFilter"
-// import HotelTypesFilter from "../components/HotelTypesFilter"
-import Pagination from "../components/Pagination"
-// import PriceFilter from "../components/PriceFilter"
-import SearchResultsCard from "../components/SearchResultsCard"
-import StarRatingFilter from "../components/StarRatingFilter"
-// import { useSearchContext } from "../contexts/SearchContext"
 import FacilitiesFilter from "../components/FacilitiesFilter"
 import HotelTypesFilter from "../components/HotelTypesFilter"
+import Pagination from "../components/Pagination"
 import PriceFilter from "../components/PriceFilter"
+import SearchResultsCard from "../components/SearchResultsCard"
+import StarRatingFilter from "../components/StarRatingFilter"
 import { useSearchContext } from "../context/SearchContext"
 import * as apiClient from "../service/api-client"
 
@@ -72,9 +68,11 @@ const Search = () => {
     )
   }
 
+  const handleMondal = () => {}
+
   return (
     <div className="grid grid-cols-1 gap-5 lg:grid-cols-[250px_1fr]">
-      <div className="sticky top-10 h-fit rounded-lg border border-slate-300 p-5">
+      <div className="top-10 hidden h-fit rounded-lg border border-slate-300 p-5 lg:sticky lg:block">
         <div className="space-y-5">
           <h3 className="border-b border-slate-300 pb-5 text-lg font-semibold">
             Filter by:
@@ -98,15 +96,46 @@ const Search = () => {
         </div>
       </div>
       <div className="flex flex-col gap-5">
-        <div className="flex items-center justify-between">
-          <span className="text-xl font-bold">
-            {hotelData?.pagination.total} Hotels found
-            {search.destination ? ` in ${search.destination}` : ""}
-          </span>
+        <span className="text-xl font-bold">
+          {hotelData?.pagination.total} Hotels found
+          {search.destination ? ` in ${search.destination}` : ""}
+        </span>
+        <div className="flex items-center justify-between lg:justify-end">
+          <button
+            className="btn btn-md lg:hidden xl:hidden"
+            onClick={() => document.getElementById("filterModal").showModal()}
+          >
+            Filter by:
+          </button>
+          <dialog id="filterModal" className="modal">
+            <div className="modal-box">
+              <div className="space-y-5">
+                <StarRatingFilter
+                  selectedStars={selectedStars}
+                  onChange={handleStarsChange}
+                />
+                <HotelTypesFilter
+                  selectedHotelTypes={selectedHotelTypes}
+                  onChange={handleHotelTypeChange}
+                />
+                <FacilitiesFilter
+                  selectedFacilities={selectedFacilities}
+                  onChange={handleFacilityChange}
+                />
+                <PriceFilter
+                  selectedPrice={selectedPrice}
+                  onChange={(value?: number) => setSelectedPrice(value)}
+                />
+              </div>
+            </div>
+            <form method="dialog" className="modal-backdrop">
+              <button>close</button>
+            </form>
+          </dialog>
           <select
             value={sortOption}
             onChange={(event) => setSortOption(event.target.value)}
-            className="rounded-md border p-2"
+            className="select select-bordered"
           >
             <option value="">Sort By</option>
             <option value="starRating">Star Rating</option>

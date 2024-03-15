@@ -29,8 +29,8 @@ const ImagesSection = () => {
         {existingImageUrls && (
           <div className="grid grid-cols-6 gap-4">
             {existingImageUrls.map((url) => (
-              <div key={url} className="group relative">
-                <img src={url} alt="" className="min-h-full object-cover" />
+              <div className="group relative">
+                <img src={url} className="min-h-full object-cover" />
                 <button
                   onClick={(event) => handleDelete(event, url)}
                   className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100"
@@ -41,6 +41,7 @@ const ImagesSection = () => {
             ))}
           </div>
         )}
+
         <input
           type="file"
           multiple
@@ -50,6 +51,7 @@ const ImagesSection = () => {
             validate: (imageFiles) => {
               const totalLength =
                 imageFiles.length + (existingImageUrls?.length || 0)
+
               if (totalLength === 0) {
                 return "At least one image should be added"
               }
@@ -57,6 +59,7 @@ const ImagesSection = () => {
               if (totalLength > 6) {
                 return "Total number of images cannot be more than 6"
               }
+
               return true
             },
           })}

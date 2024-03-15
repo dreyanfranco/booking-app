@@ -32,7 +32,7 @@ const MyHotels = () => {
               <div className="card-body">
                 <h2 className="card-title">{hotel.name}</h2>
                 <p className="whitespace-pre-line">{hotel.description}</p>
-                <div className="card-actions">
+                <div className="card-content space-x-1">
                   {/* badges */}
 
                   <div className="badge badge-outline">
@@ -130,12 +130,14 @@ const MyHotels = () => {
                     </div>
                     {hotel.starRating} Star Rating
                   </div>
-                  <Link
-                    className="rounded-lg bg-blue-600 p-2 text-xl font-bold text-white hover:bg-blue-500"
-                    to={`/edit-hotel/${hotel._id}`}
-                  >
-                    View details
-                  </Link>
+                  <div className="card-actions mt-1 justify-end">
+                    <Link
+                      className="rounded-lg bg-blue-600 p-2 text-xl font-bold text-white hover:bg-blue-500"
+                      to={`/edit-hotel/${hotel._id}`}
+                    >
+                      View details
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

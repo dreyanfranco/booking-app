@@ -12,14 +12,14 @@ const TypeSection = () => {
   return (
     <div>
       <h2 className="mb-3 text-2xl font-bold">Categories</h2>
-      <div className="grid grid-cols-3 gap-2 text-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      <div className="grid grid-cols-3 gap-2 text-center md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {hotelTypes.map((type) => (
           <label
             key={type}
             className={
               typeWatch === type
-                ? "cursor-pointer rounded-full bg-blue-300 px-4 py-2 text-sm font-semibold"
-                : "cursor-pointer rounded-full bg-gray-300 px-4 py-2 text-sm font-semibold"
+                ? "cursor-pointer rounded-full border border-blue-500 bg-white px-4 py-2 text-sm font-semibold text-blue-500"
+                : "cursor-pointer rounded-full bg-blue-500 px-4 py-2 text-sm font-semibold text-white"
             }
           >
             <input

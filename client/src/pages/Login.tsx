@@ -43,6 +43,7 @@ const Login = () => {
           alt="Sample image"
         />
       </div>
+      <h2 className="my-3 text-3xl font-bold">Login</h2>
       <form onSubmit={onSubmit} className="max-w-sm md:w-1/3">
         <input
           className="w-full rounded border border-solid border-gray-300 px-4 py-2 text-sm"
@@ -79,7 +80,7 @@ const Login = () => {
         <div className="mt-4 text-center text-sm font-semibold text-slate-500 md:text-left">
           Don&apos;t have an account?{" "}
           <Link
-            className="text-blue-500 underline hover:underline hover:underline-offset-4"
+            className="text-blue-500 hover:underline hover:underline-offset-4"
             to="/register"
           >
             Register
