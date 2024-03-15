@@ -68,8 +68,6 @@ const Search = () => {
     )
   }
 
-  const handleMondal = () => {}
-
   return (
     <div className="grid grid-cols-1 gap-5 lg:grid-cols-[250px_1fr]">
       <div className="top-10 hidden h-fit rounded-lg border border-slate-300 p-5 lg:sticky lg:block">
@@ -103,7 +101,12 @@ const Search = () => {
         <div className="flex items-center justify-between lg:justify-end">
           <button
             className="btn btn-md lg:hidden xl:hidden"
-            onClick={() => document.getElementById("filterModal").showModal()}
+            onClick={() => {
+              const filterModal = document.getElementById("filterModal")
+              if (filterModal instanceof HTMLDialogElement) {
+                filterModal.showModal()
+              }
+            }}
           >
             Filter by:
           </button>
