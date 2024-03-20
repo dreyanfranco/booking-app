@@ -94,6 +94,7 @@ const SearchBar = () => {
           minDate={minDate}
           maxDate={maxDate}
           dateFormat="dd/MM/yyyy"
+          showDisabledMonthNavigation
           placeholderText="Check-in Date"
           className="min-w-full rounded-lg bg-white focus:outline-none"
           wrapperClassName="min-w-full"

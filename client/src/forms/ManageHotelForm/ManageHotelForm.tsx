@@ -83,7 +83,7 @@ const ManageHotelForm = ({ onSave, isLoading, hotel }: Props) => {
           <button
             disabled={isLoading}
             type="submit"
-            className="bg-blue-600 p-2 text-xl font-bold text-white hover:bg-blue-500 disabled:bg-gray-500"
+            className="w-full rounded-lg bg-blue-600 p-2 text-xl font-bold text-white hover:bg-blue-500 disabled:bg-gray-500 lg:w-1/4 xl:w-1/4"
           >
             {isLoading ? "Saving..." : "Save"}
           </button>

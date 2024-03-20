@@ -25,16 +25,14 @@ const MyHotels = () => {
       <div className="grid justify-center gap-4 lg:grid-cols-3">
         {hotelData.map((hotel) => (
           <div key={hotel._id} className="">
-            <div className="card bg-base-100 w-96 shadow-xl">
-              <figure>
-                <img src={hotel.imageUrls[0]} alt="Shoes" />
+            <div className="card w-96 bg-base-100 shadow-xl">
+              <figure className="h-[250px] w-full">
+                <img src={hotel.imageUrls[0]} alt={hotel.name} />
               </figure>
               <div className="card-body">
                 <h2 className="card-title">{hotel.name}</h2>
-                <p className="whitespace-pre-line">{hotel.description}</p>
-                <div className="card-content space-x-1">
-                  {/* badges */}
-
+                <p className="line-clamp-4">{hotel.description}</p>
+                <div className="card-content mt-1 space-x-1">
                   <div className="badge badge-outline">
                     <div className="mr-1">
                       <svg

@@ -9,7 +9,7 @@ const SearchResultsCard = ({ hotel }: Props) => {
   return (
     <Link
       to={`/detail/${hotel._id}`}
-      className="grid grid-cols-1 gap-8 rounded-lg border border-slate-300 p-8 xl:grid-cols-[2fr_3fr]"
+      className="grid grid-cols-1 gap-8 rounded-2xl border border-slate-300 p-8 xl:grid-cols-[2fr_3fr]"
     >
       <div className="h-[300px] w-full">
         <img
@@ -45,9 +45,9 @@ const SearchResultsCard = ({ hotel }: Props) => {
           <div className="line-clamp-4">{hotel.description}</div>
         </div>
 
-        <div className="grid grid-cols-2 items-end whitespace-nowrap ">
+        <div className="grid grid-cols-2 items-end whitespace-nowrap">
           <div className="flex items-center gap-1">
-            {hotel.facilities.slice(0, 3).map((facility) => (
+            {hotel.facilities.slice(0, 2).map((facility) => (
               <span
                 key={facility}
                 className="whitespace-nowrap rounded-lg bg-slate-300 p-2 text-xs font-bold"
@@ -56,11 +56,11 @@ const SearchResultsCard = ({ hotel }: Props) => {
               </span>
             ))}
             <span className="text-sm">
-              {hotel.facilities.length > 3 &&
-                `+${hotel.facilities.length - 3} more`}
+              {hotel.facilities.length > 2 &&
+                `+${hotel.facilities.length - 2} more`}
             </span>
           </div>
-          <div className="flex flex-col items-end gap-1">
+          <div className="flex flex-col items-end">
             <span className="rounded-lg bg-slate-300 p-2 font-bold">
               €{hotel.pricePerNight} per night
             </span>
