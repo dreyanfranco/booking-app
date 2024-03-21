@@ -66,6 +66,19 @@ router.get("/", async (req: Request, res: Response) => {
     }
 })
 
+router.get("/popular-hotels", async (req: Request, res: Response) => {
+    try {
+        const popularHotels = await Hotel.aggregate([
+            { $match: { starRating: { $exists: true } } },
+            { $sample: { size: 10 } },
+        ])
+        res.json(popularHotels)
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ message: "Server Error" })
+    }
+})
+
 router.get(
     "/:id",
     [param("id").notEmpty().withMessage("Hotel ID is required")],
