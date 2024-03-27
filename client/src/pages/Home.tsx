@@ -1,5 +1,6 @@
 import { useQuery } from "react-query"
 
+import { Link } from "react-router-dom"
 import LatestDestinationCard from "../components/LatestDestinationCard"
 import * as apiClient from "../service/api-client"
 
@@ -13,7 +14,7 @@ const Home = () => {
   const bottomRowHotels = hotels?.slice(2) || []
 
   if (!popularHotels) {
-    return "Loading"
+    return <span className="loading loading-spinner loading-lg"></span>
   }
 
   return (
@@ -33,43 +34,49 @@ const Home = () => {
         </div>
       </div>
       <h2 className="text-2xl font-bold">Most popular destinations</h2>
-      <div className="carousel carousel-center h-[250px] space-x-1 rounded-box bg-orange-400 object-contain p-1">
-        <div className="carousel-item">
+      <div className="carousel carousel-center h-[15rem] space-x-4 rounded-box">
+        <Link to={`/detail/${popularHotels[0]._id}`} className="carousel-item">
           <img
             src={popularHotels[0].imageUrls[0]}
             alt={popularHotels[0].name}
+            className="rounded-box"
           />
-        </div>
-        <div className="carousel-item">
+        </Link>
+        <Link to={`/detail/${popularHotels[1]._id}`} className="carousel-item">
           <img
             src={popularHotels[1].imageUrls[0]}
             alt={popularHotels[0].name}
+            className="rounded-box"
           />
-        </div>
-        <div className="carousel-item">
+        </Link>
+        <Link to={`/detail/${popularHotels[2]._id}`} className="carousel-item">
           <img
             src={popularHotels[2].imageUrls[0]}
             alt={popularHotels[0].name}
+            className="rounded-box"
           />
-        </div>
-        <div className="carousel-item">
+        </Link>
+        <Link to={`/detail/${popularHotels[3]._id}`} className="carousel-item">
           <img
             src={popularHotels[3].imageUrls[0]}
             alt={popularHotels[0].name}
+            className="rounded-box"
           />
-        </div>
-        <div className="carousel-item">
+        </Link>
+        <Link to={`/detail/${popularHotels[4]._id}`} className="carousel-item">
           <img
             src={popularHotels[4].imageUrls[0]}
             alt={popularHotels[0].name}
+            className="rounded-box"
           />
-        </div>
-        <div className="carousel-item">
+        </Link>
+        <Link to={`/detail/${popularHotels[5]._id}`} className="carousel-item">
           <img
             src={popularHotels[5].imageUrls[0]}
             alt={popularHotels[0].name}
+            className="rounded-box"
           />
-        </div>
+        </Link>
       </div>
     </div>
   )
